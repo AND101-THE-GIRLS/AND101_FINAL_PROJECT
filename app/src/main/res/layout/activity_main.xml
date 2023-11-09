@@ -27,7 +27,7 @@
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/newsRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.771" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/newsRecyclerView"
         android:layout_width="230dp"
         android:layout_height="371dp"
         android:layout_below="@id/category_spinner"
@@ -76,7 +76,7 @@
         app:layout_constraintBottom_toTopOf="@+id/horoscopeTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/recyclerView" />
+        app:layout_constraintStart_toEndOf="@+id/newsRecyclerView" />
 
     <TextView
         android:id="@+id/horoscopeTextView"
