@@ -3,13 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_dynamic_primary50"
+    android:background="@color/lightyellow"
+    android:id="@+id/news"
     tools:context=".News">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <include
+        android:id="@+id/logo"
+        layout="@layout/toolbar_layout"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-31dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="150dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </FrameLayout>
