@@ -1,74 +1,133 @@
 package com.example.morningmosaic
-
-
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.DatePicker
-import android.widget.ImageView
-import android.widget.Spinner
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
-
-
+import com.example.morningmosaic.databinding.ActivityMainBinding
 import okhttp3.Headers
 
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        navController = Navigation.findNavController(this, R.id.activity_manin_nav_host_frag)
+        setupWithNavController(binding.bottomNavigationView, navController)
 
-        // Find the ImageView in the Toolbar layout
-        val toolbarImage = findViewById<ImageView>(R.id.toolbar_image)
-        val categorySpinner = findViewById<Spinner>(R.id.category_spinner)
-        val categories: MutableList<String> = ArrayList()
-        categories.add("Category 1")
-        categories.add("Category 2")
-        // Add more categories as needed
-//        val adapter = ArrayAdapter(this, R.layout.simple_spinner_item, categories)
-//        adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
-//        categorySpinner.adapter = adapter
-
-         // Initialize RecyclerView
-        val recyclerView = findViewById<RecyclerView>(R.id.newsRecyclerView)
-        // Set up your RecyclerView adapter and layout manager here
-        // Set up your RecyclerView adapter and layout manager here
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-
-
-        // Initialize TextView for displaying horoscope
-        val horoscopeTextView = findViewById<TextView>(R.id.horoscopeTextView)
-
-        getHoroscopeURL()
+        getHoroscope()
     }
 
-
-    private fun getHoroscopeURL() {
+    private fun getHoroscope() {
         val client = AsyncHttpClient()
+        //there needs to be something that gets today's date
+        //there needs to be something that gets the user's sign
+        client["https://newastro.vercel.app/aries?date=2022-04-20&lang=en", object :
+            JsonHttpResponseHandler() {
+            override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
+                Log.d("DEBUG OBJECT", json.jsonObject.toString())
 
-        client["https://aztro.sameerkumar.website?sign=$sign&day=$today", object : JsonHttpResponseHandler() {
-            override fun onSuccess(statusCode: Int, headers: Headers, json: JsonHttpResponseHandler.JSON) {
-                Log.d("Horoscope", "response successful$json")
+                var info = json.jsonObject.getString("horoscope")
+                Log.d("API Desc", info)
+                Log.d("API", "API worked")
+
+
             }
 
             override fun onFailure(
                 statusCode: Int,
                 headers: Headers?,
-                errorResponse: String,
-                throwable: Throwable?
+                response: String,
+                throwable: Throwable
             ) {
-                Log.d("Horoscope Error", errorResponse)
+                Log.d("API FAIL", response)
             }
+
         }]
     }
 
+    private fun computeSign(month: Int, day: Int): String {
+        // Add error handling for invalid input such as dates that do not exist
+        if (month == 1) {
+            if (day < 20) {
+                return "Capricorn"
+            } else if (day >= 20) {
+                return "Aquarius"
+            }
+        } else if (month == 2) {
+            if (day < 19) {
+                return "Aquarius"
+            } else if (day >= 19) {
+                return "Pisces"
+            }
+        } else if (month == 3) {
+            if (day < 21) {
+                return "Pisces"
+            } else if (day >= 21) {
+                return "Aries"
+            }
+        } else if (month == 4) {
+            if (day < 20) {
+                return "Aries"
+            } else if (day >= 20) {
+                return "Taurus"
+            }
+        } else if (month == 5) {
+            if (day < 21) {
+                return "Taurus"
+            } else if (day >= 21) {
+                return "Gemini"
+            }
+        } else if (month == 6) {
+            if (day < 21) {
+                return "Gemini"
+            } else if (day >= 21) {
+                return "Cancer"
+            }
+        } else if (month == 7) {
+            if (day < 23) {
+                return "Cancer"
+            } else if (day >= 23) {
+                return "Leo"
+            }
+        } else if (month == 8) {
+            if (day < 23) {
+                return "Leo"
+            } else if (day >= 23) {
+                return "Virgo"
+            }
+        } else if (month == 9) {
+            if (day < 23) {
+                return "Virgo"
+            } else if (day >= 23) {
+                return "Libra"
+            }
+        } else if (month == 10) {
+            if (day < 23) {
+                return "Libra"
+            } else if (day >= 23) {
+                return "Scorpio"
+            }
+        } else if (month == 11) {
+            if (day < 22) {
+                return "Scorpio"
+            } else if (day >= 22) {
+                return "Sagittarius"
+            }
+        } else if (month == 12) {
+            if (day < 22) {
+                return "Sagittarius"
+            } else if (day >= 22) {
+                return "Capricorn"
+            }
+        }
+        // Handle invalid input by returning "Unknown" or an appropriate message.
+        return "Unknown"
+    }
 }

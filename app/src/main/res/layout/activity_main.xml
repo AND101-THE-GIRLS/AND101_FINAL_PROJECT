@@ -6,86 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Hello World!"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <fragment
+        android:id="@+id/activity_manin_nav_host_frag"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/nav_bar"/>
 
-    <include
-        android:id="@+id/logo"
-        layout="@layout/toolbar_layout"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="-31dp" />
-
-    <Spinner
-        android:id="@+id/category_spinner"
-        android:layout_width="233dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/newsRecyclerView"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        app:layout_constraintVertical_bias="0.771" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:menu="@menu/bottom_nav_menu">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/newsRecyclerView"
-        android:layout_width="230dp"
-        android:layout_height="371dp"
-        android:layout_below="@id/category_spinner"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="160dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    <!-- EditText for month input -->
+    <!--Navigation Bar -->
 
-    <EditText
-        android:id="@+id/dayEditText"
-        android:layout_width="54dp"
-        android:layout_height="43dp"
-        android:layout_below="@id/category_spinner"
-        android:layout_marginBottom="20dp"
-        android:layout_weight="1"
-        android:hint="Day"
-        app:layout_constraintBottom_toTopOf="@+id/horoscopeTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toEndOf="@+id/monthEditText" />
 
-    <EditText
-        android:id="@+id/monthEditText"
-        android:layout_width="65dp"
-        android:layout_height="44dp"
-        android:layout_below="@id/category_spinner"
-        android:layout_marginEnd="88dp"
-        android:layout_marginBottom="20dp"
-        android:layout_toEndOf="@id/dayEditText"
-        android:layout_toRightOf="@id/dayEditText"
-        android:layout_weight="1"
-        android:hint="Month"
-        app:layout_constraintBottom_toTopOf="@+id/horoscopeTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/newsRecyclerView" />
 
-    <TextView
-        android:id="@+id/horoscopeTextView"
-        android:layout_width="138dp"
-        android:layout_height="370dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="160dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
