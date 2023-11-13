@@ -1,46 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/news"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightyellow"
-    android:id="@+id/news"
     tools:context=".News">
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu"/>
 
     <include
         android:id="@+id/logo"
         layout="@layout/toolbar_layout"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/news_list"
-        android:layout_width="410dp"
-        android:layout_height="319dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="409dp"
+        android:layout_height="506dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@id/categorySpinner"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo" />
+        app:layout_constraintStart_toStartOf="@id/categorySpinner"
+        app:layout_constraintTop_toBottomOf="@id/categorySpinner" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/categorySpinner"
         android:layout_width="404dp"
-        android:layout_height="35dp"
+        android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:autofillHints="Which news category is your favorite?"
+        android:entries="@array/spinner_items"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo" />

@@ -14,33 +14,22 @@
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="-31dp" />
 
-    <TextView
-        android:id="@+id/instructions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="Please enter your month and day of birth:"
-        android:layout_marginStart="10dp"
-        />
-
-
-    <!-- EditText for month input -->
-
-
     <Spinner
         android:id="@+id/category_spinner"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="200dp" />
+        android:layout_marginTop="70dp" />
+
+
+    <!-- EditText for month input -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/newsRecycleView"
         android:layout_width="225dp"
         android:layout_height="417dp"
         android:layout_marginStart="16dp"
-        android:layout_gravity="right"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="160dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,44 +38,43 @@
 
     <EditText
         android:id="@+id/dayEditText"
-        android:layout_width="63dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="143dp"
+        android:layout_below="@id/category_spinner"
+        android:layout_gravity="right"
         android:layout_marginRight="15dp"
+        android:layout_marginTop="100dp"
         android:hint="Day"
-        app:layout_constraintBottom_toTopOf="@+id/instructions"
+        app:layout_constraintBottom_toTopOf="@+id/horoscopeTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toEndOf="@+id/monthEditText" />
 
     <EditText
         android:id="@+id/monthEditText"
-        android:layout_width="79dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_below="@id/category_spinner"
-        android:layout_gravity="left"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="143dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="88dp"
+        android:layout_marginBottom="20dp"
         android:hint="Month"
+        app:layout_constraintBottom_toTopOf="@+id/horoscopeTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/newsRecyclerView"
-        app:layout_constraintTop_toBottomOf="@id/instructions" />
+        app:layout_constraintStart_toEndOf="@+id/newsRecyclerView" />
 
     <TextView
         android:id="@+id/horoscopeTextView"
         android:layout_width="140dp"
         android:layout_height="395dp"
-        android:layout_gravity="left"
-        android:layout_marginTop="270dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="170dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginStart="10dp"
         android:layout_marginBottom="160dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </FrameLayout>
