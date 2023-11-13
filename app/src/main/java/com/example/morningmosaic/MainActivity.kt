@@ -1,25 +1,44 @@
 package com.example.morningmosaic
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI.setupWithNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.example.morningmosaic.databinding.ActivityMainBinding
+import com.example.randompet.NewsAdapter
 import okhttp3.Headers
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 
 class MainActivity : AppCompatActivity() {
+    //Variables for News API
+
+
+
+
+    private lateinit var rvNews: RecyclerView
+    private lateinit var rvNews_2: RecyclerView
+    private lateinit var adapter_news: NewsAdapter
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
+    @androidx.annotation.RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        navController = Navigation.findNavController(this, R.id.activity_manin_nav_host_frag)
+        navController = Navigation.findNavController(this, R.id.activity_main_nav_host_frag)
         setupWithNavController(binding.bottomNavigationView, navController)
+
+        // Handle navigation item selected listener for the BottomNavigationView
 
         getHoroscope()
     }
@@ -130,4 +149,9 @@ class MainActivity : AppCompatActivity() {
         // Handle invalid input by returning "Unknown" or an appropriate message.
         return "Unknown"
     }
+
+
+
 }
+
+

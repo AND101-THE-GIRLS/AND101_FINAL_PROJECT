@@ -14,33 +14,26 @@
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="-31dp" />
 
-    <Spinner
-        android:id="@+id/category_spinner"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="70dp" />
-
 
     <!-- EditText for month input -->
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/newsRecycleView"
-        android:layout_width="225dp"
-        android:layout_height="417dp"
-        android:layout_marginStart="16dp"
+        android:id="@+id/news_list"
+        android:layout_width="242dp"
+        android:layout_height="521dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="150dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="160dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/category_spinner" />
+        app:layout_constraintTop_toBottomOf="@id/categorySpinner" />
 
     <EditText
         android:id="@+id/dayEditText"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_below="@id/category_spinner"
+        android:layout_below="@id/categorySpinner"
         android:layout_gravity="right"
         android:layout_marginRight="15dp"
         android:layout_marginTop="100dp"
@@ -54,7 +47,7 @@
         android:id="@+id/monthEditText"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_below="@id/category_spinner"
+        android:layout_below="@id/categorySpinner"
         android:layout_gravity="right"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="88dp"
