@@ -65,6 +65,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/newsRecyclerView" />
 
+
     <TextView
         android:id="@+id/horoscopeTextView"
         android:layout_width="140dp"
