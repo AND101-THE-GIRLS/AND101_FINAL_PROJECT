@@ -1,36 +1,22 @@
 package com.example.morningmosaic
-import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
 import android.util.Log
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI.setupWithNavController
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.example.morningmosaic.databinding.ActivityMainBinding
-import com.example.randompet.NewsAdapter
 import okhttp3.Headers
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
+import java.util.Calendar
 
 
 class MainActivity : AppCompatActivity() {
-    //Variables for News API
-
-
-
-
-    private lateinit var rvNews: RecyclerView
-    private lateinit var rvNews_2: RecyclerView
-    private lateinit var adapter_news: NewsAdapter
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-    @androidx.annotation.RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -38,20 +24,36 @@ class MainActivity : AppCompatActivity() {
         navController = Navigation.findNavController(this, R.id.activity_main_nav_host_frag)
         setupWithNavController(binding.bottomNavigationView, navController)
 
-        // Handle navigation item selected listener for the BottomNavigationView
-
-        getHoroscope()
+        val horoscopeButton = findViewById<Button>(R.id.horoscope_button)
+        horoscopeButton.setOnClickListener{
+            //when the button is clicked, all functions wrapped together to prevent errors
+            wrapper_function()
+        }
     }
+    private fun wrapper_function(){
+        //wrapper function for when button is clicked
+        var day = findViewById<EditText>(R.id.dayEditText).text.toString().toInt()
+        var month = findViewById<EditText>(R.id.monthEditText).text.toString().toInt()
+        var sign = computeSign(month, day)
+        getHoroscope(sign)
+        //maybe this should also get the news
 
-    private fun getHoroscope() {
+
+    }
+    private fun getHoroscope(sign: String) {
+        //get the current date
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH) + 1 // Months are 0-based, so add 1
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        val currentDate = "$year-${String.format("%02d", month)}-${String.format("%02d", day)}"
         val client = AsyncHttpClient()
         //there needs to be something that gets today's date
-        //there needs to be something that gets the user's sign
-        client["https://newastro.vercel.app/aries?date=2022-04-20&lang=en", object :
+        client["https://newastro.vercel.app/$sign?date=$currentDate&lang=en", object :
             JsonHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
+                //If the horoscope API sucessfully retrieves data put the horoscope into "info" and log it
                 Log.d("DEBUG OBJECT", json.jsonObject.toString())
-
                 var info = json.jsonObject.getString("horoscope")
                 Log.d("API Desc", info)
                 Log.d("API", "API worked")
@@ -65,6 +67,7 @@ class MainActivity : AppCompatActivity() {
                 response: String,
                 throwable: Throwable
             ) {
+                //If the Horoscope API fails, log it
                 Log.d("API FAIL", response)
             }
 
@@ -72,6 +75,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun computeSign(month: Int, day: Int): String {
+        //function takes day and month as input and computes the user's zodiac sign
         // Add error handling for invalid input such as dates that do not exist
         if (month == 1) {
             if (day < 20) {
@@ -149,9 +153,4 @@ class MainActivity : AppCompatActivity() {
         // Handle invalid input by returning "Unknown" or an appropriate message.
         return "Unknown"
     }
-
-
-
 }
-
-
