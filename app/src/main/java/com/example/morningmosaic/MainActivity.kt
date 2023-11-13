@@ -2,6 +2,7 @@ package com.example.morningmosaic
 
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.DatePicker
 import android.widget.ImageView
@@ -11,6 +12,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.codepath.asynchttpclient.AsyncHttpClient
+import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+
+
+import okhttp3.Headers
 
 
 class MainActivity : AppCompatActivity() {
@@ -41,5 +47,28 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize TextView for displaying horoscope
         val horoscopeTextView = findViewById<TextView>(R.id.horoscopeTextView)
+
+        getHoroscopeURL()
     }
+
+
+    private fun getHoroscopeURL() {
+        val client = AsyncHttpClient()
+
+        client["https://aztro.sameerkumar.website?sign=$sign&day=$today", object : JsonHttpResponseHandler() {
+            override fun onSuccess(statusCode: Int, headers: Headers, json: JsonHttpResponseHandler.JSON) {
+                Log.d("Horoscope", "response successful$json")
+            }
+
+            override fun onFailure(
+                statusCode: Int,
+                headers: Headers?,
+                errorResponse: String,
+                throwable: Throwable?
+            ) {
+                Log.d("Horoscope Error", errorResponse)
+            }
+        }]
+    }
+
 }
