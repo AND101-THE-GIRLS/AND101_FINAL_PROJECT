@@ -19,9 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="100dp"
-        android:inputType="text"
-        android:text="Day"
-        android:hint="Day"/>
+        android:inputType="number"
+        android:hint="DD"/>
 
     <EditText
         android:id="@+id/month"
@@ -30,9 +29,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="100dp"
         android:layout_marginRight="60dp"
-        android:inputType="text"
-        android:text="Month"
-        android:hint="Month"/>
+        android:inputType="number"
+        android:hint="MM"/>
 
     <TextView
         android:id="@+id/horoscopeText"
