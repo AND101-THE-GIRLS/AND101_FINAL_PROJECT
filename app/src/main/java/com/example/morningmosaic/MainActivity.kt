@@ -1,29 +1,15 @@
 package com.example.morningmosaic
-
-
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
-import androidx.fragment.app.Fragment;
-import android.widget.ImageView
-import android.widget.Spinner
-import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI.setupWithNavController
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.morningmosaic.databinding.ActivityMainBinding
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import com.example.morningmosaic.databinding.ActivityMainBinding
 import okhttp3.Headers
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -34,38 +20,114 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         navController = Navigation.findNavController(this, R.id.activity_manin_nav_host_frag)
         setupWithNavController(binding.bottomNavigationView, navController)
+
+        getHoroscope()
     }
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun fetchNewsAPI(){
+
+    private fun getHoroscope() {
         val client = AsyncHttpClient()
-        val currentDate = LocalDate.now()
-        val formattedDate = currentDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-        val newsapi = "http://api.mediastack.com/v1/news?access_key = 42c1d418f08524ae927959dece61b3eb&date=2020-01-01"
+        //there needs to be something that gets today's date
+        //there needs to be something that gets the user's sign
+        client["https://newastro.vercel.app/aries?date=2022-04-20&lang=en", object :
+            JsonHttpResponseHandler() {
+            override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
+                Log.d("DEBUG OBJECT", json.jsonObject.toString())
 
-        client[newsapi, object : JsonHttpResponseHandler(){
+                var info = json.jsonObject.getString("horoscope")
+                Log.d("API Desc", info)
+                Log.d("API", "API worked")
 
-            override fun onSuccess(statusCode:Int, headers: Headers, json: JsonHttpResponseHandler.JSON) {
-                val results = json.jsonObject.getJSONArray("results")
-
-                for (i in 0 until results.length()) {
-                    val pokemon = results.getJSONObject(i)
-                    val pokemonNames = pokemon.getString("name")
-                    val pokemonUrl = pokemon.getString("url")
-
-                    // Fetch detailed information for each Pokémon
-
-                }
 
             }
 
             override fun onFailure(
                 statusCode: Int,
                 headers: Headers?,
-                errorResponse: String,
-                throwable: Throwable?
+                response: String,
+                throwable: Throwable
             ) {
-                Log.d("", errorResponse)
+                Log.d("API FAIL", response)
             }
+
         }]
+    }
+
+    private fun computeSign(month: Int, day: Int): String {
+        // Add error handling for invalid input such as dates that do not exist
+        if (month == 1) {
+            if (day < 20) {
+                return "Capricorn"
+            } else if (day >= 20) {
+                return "Aquarius"
+            }
+        } else if (month == 2) {
+            if (day < 19) {
+                return "Aquarius"
+            } else if (day >= 19) {
+                return "Pisces"
+            }
+        } else if (month == 3) {
+            if (day < 21) {
+                return "Pisces"
+            } else if (day >= 21) {
+                return "Aries"
+            }
+        } else if (month == 4) {
+            if (day < 20) {
+                return "Aries"
+            } else if (day >= 20) {
+                return "Taurus"
+            }
+        } else if (month == 5) {
+            if (day < 21) {
+                return "Taurus"
+            } else if (day >= 21) {
+                return "Gemini"
+            }
+        } else if (month == 6) {
+            if (day < 21) {
+                return "Gemini"
+            } else if (day >= 21) {
+                return "Cancer"
+            }
+        } else if (month == 7) {
+            if (day < 23) {
+                return "Cancer"
+            } else if (day >= 23) {
+                return "Leo"
+            }
+        } else if (month == 8) {
+            if (day < 23) {
+                return "Leo"
+            } else if (day >= 23) {
+                return "Virgo"
+            }
+        } else if (month == 9) {
+            if (day < 23) {
+                return "Virgo"
+            } else if (day >= 23) {
+                return "Libra"
+            }
+        } else if (month == 10) {
+            if (day < 23) {
+                return "Libra"
+            } else if (day >= 23) {
+                return "Scorpio"
+            }
+        } else if (month == 11) {
+            if (day < 22) {
+                return "Scorpio"
+            } else if (day >= 22) {
+                return "Sagittarius"
+            }
+        } else if (month == 12) {
+            if (day < 22) {
+                return "Sagittarius"
+            } else if (day >= 22) {
+                return "Capricorn"
+            }
+        }
+        // Handle invalid input by returning "Unknown" or an appropriate message.
+        return "Unknown"
     }
 }
