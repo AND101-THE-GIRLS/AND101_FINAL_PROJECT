@@ -46,7 +46,10 @@ Here's a video that demos all of the app's implemented features:
 <img src='./AND101P10News.gif' title='Video Demo' width='' alt='Video Demo' />
 <img src='./AND101P10Horoscope.gif' title='Video Demo' width='' alt='Video Demo' />
 
-VIDEO created with **ScreenToGif**
+**Here is a link to our video**
+<img src='https://youtu.be/qK7mObQUKbA' title='Video Demo' width='' alt='Video Demo' />
+
+VIDEO created with **ScreenToGif, Windows GameBar, and Windows ClipChamp**
 
 ## Notes
 
