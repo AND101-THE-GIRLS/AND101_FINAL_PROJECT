@@ -4,14 +4,10 @@ import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +15,6 @@ import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.example.morningmosaic.databinding.FragmentHomeBinding
 import com.example.randompet.NewsAdapter_Home
-import kotlinx.coroutines.selects.select
 import okhttp3.Headers
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -58,7 +53,7 @@ class Home : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view =binding.root
         // Initialize RecyclerView and set up the adapter
-        rvNews = binding.newsList
+        rvNews = binding.newsRecycleView
 
         adapter_news = NewsAdapter_Home(title, author, description, url, img, category, published_time)
         rvNews.adapter = adapter_news

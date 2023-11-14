@@ -48,16 +48,28 @@ class Horoscope : Fragment() {
         val day = calendar.get(Calendar.DAY_OF_MONTH)
         val currentDate = "$year-${String.format("%02d", month)}-${String.format("%02d", day)}"
         val client = AsyncHttpClient()
+        var info = ""
         //there needs to be something that gets today's date
         client["https://newastro.vercel.app/$sign?date=$currentDate&lang=en", object :
             JsonHttpResponseHandler() {
+
             override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
                 //If the horoscope API sucessfully retrieves data put the horoscope into "info" and log it
                 Log.d("DEBUG OBJECT", json.jsonObject.toString())
                 var info = json.jsonObject.getString("horoscope")
                 Log.d("API Desc", info)
                 Log.d("API", "API worked")
+                when {
+                    !info.isEmpty() && info != null -> {
+                        Log.d("horoscope", info)
+                        val textView = view?.findViewById<TextView>(R.id.horoscopeText)
+                        textView?.text = info
+                        val textView2 = view?.findViewById<TextView>(R.id.horoscopeTextView)
+                        textView2?.text = info
+                    }
+                }
             }
+
             override fun onFailure(
                 statusCode: Int,
                 headers: Headers?,
@@ -67,21 +79,29 @@ class Horoscope : Fragment() {
                 //If the Horoscope API fails, log it
                 Log.d("API FAIL", response)
             }
+
         }]
+
     }
+
+
+
     private fun wrapper_function() {
         //wrapper function for when button is clicked
-        var day = view?.findViewById<EditText>(R.id.dayEditText)?.text.toString().toInt()
-        var month = view?.findViewById<EditText>(R.id.monthEditText)?.text.toString().toInt()
+        var day = view?.findViewById<EditText>(R.id.day)?.text.toString()
+        var month = view?.findViewById<EditText>(R.id.month)?.text.toString()
+        Log.d("day", day)
+        Log.d("month", month)
         if (month == null || day == null){
             Log.d("text", "no text input")
         } else {
-            var sign = computeSign(month, day)
+            Log.d("text", "text input")
+            var int_month = month.toInt()
+            var int_day = day.toInt()
+            var sign = computeSign(int_month, int_day)
             var horoscope = getHoroscope(sign)
-            var textView = view?.findViewById<TextView>(R.id.horoscopeText)
-            if (textView != null) {
-                textView.text = horoscope.toString()
-            }
+
+
         }
 
     }
@@ -90,9 +110,12 @@ class Horoscope : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_horoscope, container, false)
     }
+
+
 
     companion object {
         /**
