@@ -74,8 +74,9 @@ Required Feature
 We learned that using most APIs is really complicated.  
 
 For Milestone 2, include **2+ Videos/GIFs** of the build process here!
-<img src='lightmode.gif' title='LightMode' width='' alt='Video Demo' />
-<img src='darkmode.gif' title='DarkMode' width='' alt='Video Demo' />
+<img src='./AND101P10Screens.gif' title='Video Demo' width='' alt='Video Demo' />
+<img src='./AND101P10News.gif' title='Video Demo' width='' alt='Video Demo' />
+<img src='./AND101P10Horoscope.gif' title='Video Demo' width='' alt='Video Demo' />
 
 
 ## License
