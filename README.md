@@ -48,7 +48,6 @@ Here's a video that demos all of the app's implemented features:
 
 **Here is a link to our video**
 [Youtube Video](https://youtu.be/qK7mObQUKbA)
-[![Watch the video]()](https://youtu.be/qK7mObQUKbA)
 VIDEO created with **ScreenToGif, Windows GameBar, and Windows ClipChamp**
 
 ## Notes
