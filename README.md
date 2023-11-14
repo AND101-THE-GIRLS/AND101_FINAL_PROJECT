@@ -42,8 +42,11 @@ The following EXTRA features are implemented:
 Here's a video that demos all of the app's implemented features:
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Demo' width='' alt='Video Demo' />
+<img src='./AND101P10Screens' title='Video Demo' width='' alt='Video Demo' />
+<img src='./AND101P10News' title='Video Demo' width='' alt='Video Demo' />
+<img src='./AND101P10Horoscope' title='Video Demo' width='' alt='Video Demo' />
 
-VIDEO created with **your chosen video tool**
+VIDEO created with **ScreenToGif**
 
 ## Notes
 
