@@ -75,13 +75,13 @@ We learned that using most APIs is really complicated.
 
 For Milestone 2, include **2+ Videos/GIFs** of the build process here!
 Overview:
-<img src='Overview.mp4' title='Overview' width='' alt='Overview' />
-Home Page:
-<img src='Home.mp4' title='Home' width='' alt='Home' />
-Horoscrope:
-<img src='Horoscope.mp4' title='Horoscope' width='' alt='Horoscope' />
-News:
-<img src='News.mp4' title='News' width='' alt='Nes' />
+[Overview Video](Overview.mp4)
+
+[Home Video](Home.mp4)
+
+[Horoscope Video](Horoscope.mp4)
+
+[News Video](News.mp4)
 
 ## License
 
