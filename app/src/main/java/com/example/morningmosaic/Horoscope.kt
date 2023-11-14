@@ -1,5 +1,6 @@
 package com.example.morningmosaic
 
+import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,12 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
+import java.lang.System.load
 import java.util.Calendar
+import java.util.concurrent.TimeoutException
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -67,7 +72,13 @@ class Horoscope : Fragment() {
                         val textView2 = view?.findViewById<TextView>(R.id.horoscopeTextView)
                         textView2?.text = info
                     }
+
                 }
+                val horoscope1= view?.findViewById<TextView>(R.id.sign)
+                val horoscope2=view?.findViewById<TextView>(R.id.sign2)
+                horoscope1?.text=sign
+                horoscope2?.text=sign
+
             }
 
             override fun onFailure(

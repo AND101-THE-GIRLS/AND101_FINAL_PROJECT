@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,45 +8,76 @@
     android:id="@+id/horoscope"
     tools:context=".Horoscope">
 
+    <TextView
+        android:id="@+id/sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="65dp"
+        android:fontFamily="@font/alex_brush"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <TextView
+        android:id="@+id/sign2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/alex_brush"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
     <include
         android:id="@+id/logo"
         layout="@layout/toolbar_layout"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="-31dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="24dp"
+        android:hint="DD"
         android:inputType="number"
-        android:hint="DD"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
 
     <EditText
         android:id="@+id/month"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:hint="MM"
         android:inputType="number"
-        android:hint="MM"/>
+        app:layout_constraintStart_toStartOf="@id/day"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
 
     <Button
         android:id="@+id/horoscope_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="130dp"
-        android:text="Get Horoscope" />
+        android:layout_marginStart="140dp"
+        android:text="Get Horoscope"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/day" />
 
     <TextView
         android:id="@+id/horoscopeText"
         android:layout_width="301dp"
         android:layout_height="394dp"
         android:layout_gravity="center"
-        android:layout_marginTop="120dp"/>
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/horoscope_button" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

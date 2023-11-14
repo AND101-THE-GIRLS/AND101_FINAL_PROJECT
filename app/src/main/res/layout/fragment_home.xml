@@ -60,15 +60,15 @@
     <TextView
         android:id="@+id/horoscopeTextView"
         android:layout_width="140dp"
-        android:layout_height="395dp"
+        android:layout_height="420dp"
         android:layout_gravity="right"
         android:layout_marginTop="170dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="0dp"
         android:layout_marginBottom="160dp"
 
+        android:background="@drawable/image_with_opacity"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/image_with_opacity"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"

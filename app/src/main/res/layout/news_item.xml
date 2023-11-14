@@ -37,7 +37,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/antic_didone"
         android:text="TextView"
-        android:textSize="12dp"
+        android:textSize="8dp"
         app:layout_constraintStart_toStartOf="@id/title"
         app:layout_constraintTop_toBottomOf="@id/title" />
 
@@ -45,10 +45,10 @@
         android:id="@+id/author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/antic_didone"
         android:text="TextView"
-        android:textSize="12dp"
+        android:textSize="8dp"
         app:layout_constraintStart_toStartOf="@id/title"
         app:layout_constraintTop_toBottomOf="@id/category" />
 
@@ -62,7 +62,7 @@
         android:fontFamily="@font/alegreya_sans_sc_thin"
         android:text="TextView"
 
-        android:textSize="12sp"
+        android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/author" />
