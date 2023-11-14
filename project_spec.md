@@ -30,24 +30,26 @@ It would be a morning app for people to wake up, look at their horoscope, and se
 
 Required Features:
 
-- **Scrollable view**
-- **Ability to display multiple articles + images at once**
-- **User can set preferences for news categories and birthday for astrology with user input**
-- **Ability to get updated information with API calls**
-- **Use consistent custom styling**
+[X]**Scrollable view**
+[X]**Ability to display multiple articles + images at once**
+[X]**User can set preferences for news categories and birthday for astrology with user input**
+[X]**Ability to get updated information with API calls**
+[X]**Use consistent custom styling**
 
 Stretch Features:
 
-- **Uses two API's**
-- **Allows user to customize their experience**
+[X]**Uses two API's**
+[X]**Allows user to customize their experience**
 
 ### 2. Chosen API(s)
 
-- **Mediastack News REST API** (Link: [News API](https://))
+[X]**Mediastack News REST API** (Link: [News API](https://mediastack.com/))
   
   -  Delivering worldwide live and historical news data in handy JSON format
   -  Dislaying news title, data, news source, image,...
-- **AstrologyAPI** (Link: [AstrologyAPI](https://www.astrologyapi.com/horoscope-api-docs/api-ref/75/sun_sign_prediction/daily/:zodiacName))
+  -  Displaying the toast with the published time when we click the image(if available)
+
+[X]**AstrologyAPI** (Link: [Astro API](https://newastro.vercel.app/))
 
   - Displaying daily predictions for individuals based on their zodiac sign (various aspects of life: personal life, profession, health, travel, luck, and emotions)
  
@@ -55,12 +57,12 @@ Stretch Features:
 
 Required Feature
 
-- **User can enter their birth day and month to view the horoscope**
-  - **The app will be able to show the user their horscope**
-  - Using TextView
-- **User can select a category or multiple categories of news to view**
-  - **The app will give the user a scrollable view of three news stories that are within the categories that are selected**
-  - RecyclerView
+[X]**User can enter their birth day and month to view the horoscope**
+[X]**The app will be able to show the user their horscope**
+[X]Using TextView
+[X]**User can select a category or multiple categories of news to view**
+- **The app will give the user a scrollable view of three news stories that are within the categories that are selected**
+[X]**RecyclerView**
 
 ## Wireframes
 
@@ -72,6 +74,14 @@ Required Feature
 We learned that using most APIs is really complicated.  
 
 For Milestone 2, include **2+ Videos/GIFs** of the build process here!
+Overview:
+<img src='Overview.mp4' title='Overview' width='' alt='Overview' />
+Home Page:
+<img src='Home.mp4' title='Home' width='' alt='Home' />
+Horoscrope:
+<img src='Horoscope.mp4' title='Horoscope' width='' alt='Horoscope' />
+News:
+<img src='News.mp4' title='News' width='' alt='Nes' />
 
 ## License
 
