@@ -4,5 +4,12 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
         <item name="colorPrimary">@color/cardview_dark_background</item>
+        <item name="android:windowBackground">@color/darker_background</item> <!-- Set a darker background color -->
+        <item name="android:textColor">@color/bright_text_color</item> <!-- Set a brighter text color -->
     </style>
+
+    <!-- Define your custom colors -->
+    <color name="darker_background">#333333</color> <!-- Example: Dark Gray -->
+    <color name="bright_text_color">#FFFFFF</color> <!-- Example: White -->
 </resources>
+
