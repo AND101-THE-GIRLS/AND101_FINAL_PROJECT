@@ -47,8 +47,8 @@ Here's a video that demos all of the app's implemented features:
 <img src='./AND101P10Horoscope.gif' title='Video Demo' width='' alt='Video Demo' />
 
 **Here is a link to our video**
-[Youtube Video]('https://youtu.be/qK7mObQUKbA')
-
+[Youtube Video](https://youtu.be/qK7mObQUKbA)
+[![Watch the video]()](https://youtu.be/qK7mObQUKbA)
 VIDEO created with **ScreenToGif, Windows GameBar, and Windows ClipChamp**
 
 ## Notes
