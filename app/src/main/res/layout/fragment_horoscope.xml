@@ -46,7 +46,6 @@
         android:layout_width="301dp"
         android:layout_height="394dp"
         android:layout_gravity="center"
-        android:layout_marginTop="130dp"
-        android:text="TextView" />
+        android:layout_marginTop="120dp"/>
 
 </FrameLayout>

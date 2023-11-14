@@ -14,52 +14,44 @@
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="-31dp" />
 
-    <Spinner
-        android:id="@+id/category_spinner"
+    <TextView
+        android:id="@+id/newsHeader"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="70dp" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:text="Daily News"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
 
 
     <!-- EditText for month input -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/newsRecycleView"
-        android:layout_width="225dp"
-        android:layout_height="417dp"
+        android:layout_width="226dp"
+        android:layout_height="565dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="150dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="160dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/category_spinner" />
+        app:layout_constraintTop_toBottomOf="@id/newsHeader" />
 
-    <EditText
-        android:id="@+id/dayEditText"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/category_spinner"
-        android:layout_gravity="right"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="100dp"
-        android:hint="DD"
-        app:layout_constraintBottom_toTopOf="@+id/horoscopeTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toEndOf="@+id/monthEditText" />
 
-    <EditText
-        android:id="@+id/monthEditText"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/category_spinner"
+    <TextView
+        android:id="@+id/horoscopeHeader"
+        android:layout_width="117dp"
+        android:layout_height="89dp"
+        android:layout_below="@id/newsHeader"
         android:layout_gravity="right"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginBottom="20dp"
-        android:hint="MM"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="15dp"
+        android:text="Daily \n\nHoroscope"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/horoscopeTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -73,8 +65,27 @@
         android:layout_marginTop="170dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="160dp"
-        android:text="TextView"
+
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/image_with_opacity"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="41dp"
+        android:layout_height="47dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/horoscope" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="50dp"
+        android:layout_height="47dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/news" />
+
 
 </FrameLayout>
